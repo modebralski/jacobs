@@ -1,29 +1,31 @@
 jde_data-part1.csv > jde_data_cleaned.csv
 
 Kolumny:
--   ID_ZLECENIA_PALONA: Numer Zlecenia Produkcyjnego, kolumna zostawiona bez zmian
--   DTZAPIS: Data Zapisu,
+-   ID_ZLECENIA_PALONA: Numer Zlecenia Produkcyjnego, zmiana nazwy na ID
+-   DTZAPIS: Data Zapisu, zmiana nazwy na Data zapisu
 -   ILOSC_PALONA: Ilość kawy uzyskana po zakończeniu procesu prażenia po odliczaniu strat, powiązana z kolumną
-    PREV_ILOSC_PALONA, przyjmują podobne wartości.
--   NUMERZASYPU: Zlecenie produkcyjne składa się z kilku zasypów "Wsadów" jest to kolejny numer w ramach zlecenia
--   IDZLECENIE: ID zlecenia, na które składa się kilka prażeń.
--   NUMERPIECA: Koda Pieca, dane pochodzą z 3 piecy.
+    PREV_ILOSC_PALONA, przyjmują podobne wartości. Zmiana nazwy na Ilosc uprazonej kawy bez strat [kg]
+-   NUMERZASYPU: Zlecenie produkcyjne składa się z kilku zasypów "Wsadów" jest to kolejny numer w ramach zlecenia. Zmiana
+    nazwy na Numer zasypu.
+-   IDZLECENIE: ID zlecenia, na które składa się kilka prażeń. Zmiana nazwy na ID zlecenia.
+-   NUMERPIECA: Koda Pieca, dane pochodzą z 3 piecy. Zmiana nazwy na Numer Pieca
 -   Anulowany: kolumna nic nie wnosi do danych, usunięta.
 -   Zagubiona: kolumna nic nie wnosi do danych, usunięta.
--   SUMA_ZIELONEJ: suma kawy wsypanej na początku procesu prażenia.
+-   SUMA_ZIELONEJ: suma kawy wsypanej na początku procesu prażenia. Zmiana nazwy na Suma kawy wsypanej na poczatku
+    prazenia [kg]
 -   QuantityError: prawdopodobnie kolumna sygnalizuje jakiś błąd w ilości prażonej kawy. Usunięta.
 -   PREV_ILOSC_PALONA: powiązana z kolumną ILOSC_PALONA, przyjmują podobne wartości. Nie potrafię się domyślić jej
     przeznaczenia
 -   Posted: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
--   ZbiornikKawyPalonej: Numer zbiornika do którego trafiła kawa.
+-   ZbiornikKawyPalonej: Numer zbiornika do którego trafiła kawa. Zmiana nazwy na Zbiornik kawy palonej.
 -   LockedByEditor: kolumna nic nie wnosi do danych, usunięta.
 -   dtLastEdited: Data ostatniej modyfikacji wiersza, usunięta.
 -   ExternalErrorCleaner: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
 -   READJUSTED_BY: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
 -   TruckNo1: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
 -   TruckNo2: kolumna nic nie wnosi do danych. Usunięta.
--   dtRoastingStart:
--   dtRoastingFinish
+-   dtRoastingStart: Faktyczne rozpoczęcie procesu prażenia. Zmiana nazwy na Rozpoczecie procesu prazenia.
+-   dtRoastingFinish: Faktyczne zakończenia procesu prażenia. Zmiana nazwy na Zakonczenie procesu prazenia.
 -   ikWh_counter_start: stan licznika prądu kWh_counter na początku prażenia. Usunięta.
 -   ikWh_counter_finish: stan licznika prądu kWh_counter na końcu prażenia. Usunięta.
 -   im3_counter_start: stan licznika gazu im3_counter na początku prażenia. Usunięta.
@@ -35,15 +37,17 @@ Kolumny:
 -   ikWh_consumption: zużycie prądu na kWh_counter. Wartość powstaje z
     (ikWh_counter_finish - ikWh_counter_start) * ikWh_multiplier. Usunięta.
 -   im3_consumption: zużycie gazu na im3_counter. Wartość powstaje z
-    (im3_counter_finish - im3_counter_start) * im3_multiplier.
+    (im3_counter_finish - im3_counter_start) * im3_multiplier. Zmiana nazwy na Zuzycie gazu [m3]
 -   ikWh_counter1_start: stan licznika prądu kWh_counter1 na początku prażenia. Usunięta.
 -   ikWh_counter1_finish: stan licznika prądu kWh_counter1 na końcu prażenia. Usunięta.
 -   ikWh_multiplier1: mnożnik zużycia energii dla kWh_counter1. Dla niektórych wartości w kolumnie ikWh_consumption1 daje
     złe wyniki. Możliwe, że trzeba poprawić wartości w tej kolumnie(ikWh_multiplier1), aby się pokrywały z wartościami w
     ikWh_consumption1. Usunięta.
 -   ikWh_unit_name1: jednostka zużycia prądu. Usunięta.
--   ikWh_consumption1: zużycie prądu na kWh_counter1. Wartość powstaje z (ikWh_counter1_finish - ikWh_counter1_start) * ikWh_multiplier1. Usunięta.
--   ikWh_total_consumption: łączne zużycie prądu, powstaje z ikWh_consumption + ikWh_consumption1.
+-   ikWh_consumption1: zużycie prądu na kWh_counter1. Wartość powstaje z
+    (ikWh_counter1_finish - ikWh_counter1_start) * ikWh_multiplier1. Usunięta.
+-   ikWh_total_consumption: łączne zużycie prądu, powstaje z ikWh_consumption + ikWh_consumption1. Zmiana nazwy na
+    Zuzycie pradu [kWh]
 -   lTriggerCounter: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
 
 Rekordy:
