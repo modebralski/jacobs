@@ -1,0 +1,59 @@
+jde_data-part1.csv > jde_data_cleaned.csv
+
+Kolumny:
+-   ID_ZLECENIA_PALONA: Numer Zlecenia Produkcyjnego, kolumna zostawiona bez zmian
+-   DTZAPIS: Data Zapisu,
+-   ILOSC_PALONA: Ilość kawy uzyskana po zakończeniu procesu prażenia po odliczaniu strat, powiązana z kolumną
+    PREV_ILOSC_PALONA, przyjmują podobne wartości.
+-   NUMERZASYPU: Zlecenie produkcyjne składa się z kilku zasypów "Wsadów" jest to kolejny numer w ramach zlecenia
+-   IDZLECENIE: ID zlecenia, na które składa się kilka prażeń.
+-   NUMERPIECA: Koda Pieca, dane pochodzą z 3 piecy.
+-   Anulowany: kolumna nic nie wnosi do danych, usunięta.
+-   Zagubiona: kolumna nic nie wnosi do danych, usunięta.
+-   SUMA_ZIELONEJ: suma kawy wsypanej na początku procesu prażenia.
+-   QuantityError: prawdopodobnie kolumna sygnalizuje jakiś błąd w ilości prażonej kawy. Usunięta.
+-   PREV_ILOSC_PALONA: powiązana z kolumną ILOSC_PALONA, przyjmują podobne wartości. Nie potrafię się domyślić jej
+    przeznaczenia
+-   Posted: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
+-   ZbiornikKawyPalonej: Numer zbiornika do którego trafiła kawa.
+-   LockedByEditor: kolumna nic nie wnosi do danych, usunięta.
+-   dtLastEdited: Data ostatniej modyfikacji wiersza, usunięta.
+-   ExternalErrorCleaner: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
+-   READJUSTED_BY: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
+-   TruckNo1: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
+-   TruckNo2: kolumna nic nie wnosi do danych. Usunięta.
+-   dtRoastingStart:
+-   dtRoastingFinish
+-   ikWh_counter_start: stan licznika prądu kWh_counter na początku prażenia. Usunięta.
+-   ikWh_counter_finish: stan licznika prądu kWh_counter na końcu prażenia. Usunięta.
+-   im3_counter_start: stan licznika gazu im3_counter na początku prażenia. Usunięta.
+-   im3_counter_finish: stan licznika gazu im3_counter na początku prażenia. Usunięta.
+-   ikWh_multiplier: mnożnik zużycia energii dla kWh_counter. Kolumna nic nie wnosi do danych. Usunięta.
+-   im3_multiplier: mnożnik zużycia prądu dla im3_counter. Kolumna nic nie wnosi do danych. Usunięta.
+-   ikWh_unit_name: jednostka zużycia prądu, dodałem jednostkę do nazwy kolumn od zużycia prądu. Usunięta.
+-   im3_unit_name: jednostka zużycia gazu, dodałem jednostkę do nazwy kolumn od zużycia gazu. Usunięta.
+-   ikWh_consumption: zużycie prądu na kWh_counter. Wartość powstaje z
+    (ikWh_counter_finish - ikWh_counter_start) * ikWh_multiplier. Usunięta.
+-   im3_consumption: zużycie gazu na im3_counter. Wartość powstaje z
+    (im3_counter_finish - im3_counter_start) * im3_multiplier.
+-   ikWh_counter1_start: stan licznika prądu kWh_counter1 na początku prażenia. Usunięta.
+-   ikWh_counter1_finish: stan licznika prądu kWh_counter1 na końcu prażenia. Usunięta.
+-   ikWh_multiplier1: mnożnik zużycia energii dla kWh_counter1. Dla niektórych wartości w kolumnie ikWh_consumption1 daje
+    złe wyniki. Możliwe, że trzeba poprawić wartości w tej kolumnie(ikWh_multiplier1), aby się pokrywały z wartościami w
+    ikWh_consumption1. Usunięta.
+-   ikWh_unit_name1: jednostka zużycia prądu. Usunięta.
+-   ikWh_consumption1: zużycie prądu na kWh_counter1. Wartość powstaje z (ikWh_counter1_finish - ikWh_counter1_start) * ikWh_multiplier1. Usunięta.
+-   ikWh_total_consumption: łączne zużycie prądu, powstaje z ikWh_consumption + ikWh_consumption1.
+-   lTriggerCounter: nie potrafiłem się domyślić, co ta kolumna znaczy. Usunięta.
+
+Rekordy:
+-   usunąłem rekordy, gdzie w kolumnie SUMA_ZIELONEJ występowały wartości NaN (5 rekordów).
+
+Nowe kolumny:
+-   Dlugosc procesu prazenia: kolumna typu timeDelta, powstała z dtRoastingFinish - dtRoastingStart
+
+Proponowane KPI:
+-   KPI związane z piecami (ilość prażonej kawy, zużycie energii i gazu, zużycie energii i gazu / ilość kawy, czas prażenia, czas prażenia / ilość kawy, ilość wykonanych zleceń, straty).
+-   KPI ogólne (ilość prażonej kawy, zużycie energii i gazu, czas prażenia, ilość wykonanych zleceń, straty).
+-   KPI związane z zasypami (do których pieców, ilość kawy)
+-   KPI związane z pojemnikami (z których pieców, ilość kawy)
